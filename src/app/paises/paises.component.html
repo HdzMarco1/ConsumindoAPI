@@ -1,0 +1,18 @@
+<h1>{{titulo}}</h1>
+<button class="btn btn-info" type="button" [routerLink]="['/pais']">Nuevo Pais</button>
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Nombre</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor= "let pais of paises">
+            <td>{{pais.nombre}}</td>
+            <td><button class="btn btn-primary" type="button" [routerLink]="['/pais',pais.id]">Editar</button></td>
+            <td><button class="btn btn-danger" type="button" (click)="eliminarPais(pais.id)">Eliminar</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
