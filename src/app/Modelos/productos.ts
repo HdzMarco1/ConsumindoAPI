@@ -6,9 +6,11 @@ export class Productos {
     fechaLlegada:string;
     cantidad:number;
     paisOrigenId:{
+        nombre:string;
         id:number;
     };
     paisDestinoId:{
+        nombre:string;
         id:number;
     }
 }

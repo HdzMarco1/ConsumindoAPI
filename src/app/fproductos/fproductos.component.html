@@ -1,1 +1,38 @@
-<p>fproductos works!</p>
+<h1>{{titulo}}</h1>
+
+<div class="container">
+    <form>
+        <div>
+            <label class="form-label">Codigo:</label>
+            <input type="email" class="form-control" [(ngModel)] = "producto.code" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div>
+            <label class="form-label">Nombre:</label>
+            <input type="email" class="form-control" [(ngModel)] = "producto.nombre" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div>
+            <label class="form-label">Fecha Embarque:</label>
+            <input type="email" class="form-control" [(ngModel)] = "producto.fechaEmbarque" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div>
+            <label class="form-label">Fecha Llegada:</label>
+            <input type="email" class="form-control" [(ngModel)] = "producto.fechaLlegada" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div>
+            <label class="form-label">cantidad:</label>
+            <input type="email" class="form-control" [(ngModel)] = "producto.cantidad" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div>
+            <label class="form-label">pais origen:</label>
+            <input type="email" class="form-control" [(ngModel)] = "producto.paisOrigenId.nombre" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div>
+            <label class="form-label">pais destino:</label>
+            <input type="email" class="form-control" [(ngModel)] = "producto.paisDestinoId.nombre" [ngModelOptions]="{standalone: true}">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-success" (click)="create()">Guardar</button>
+        <button type="submit" class="btn btn-success" style="margin: 10px;" (click)="update()">Editar</button>
+        <button type="submit" class="btn btn-success" style="margin: 5px;" [routerLink]="['/paises']">Regresar</button>
+    </form>
+</div>
