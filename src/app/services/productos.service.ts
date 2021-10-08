@@ -12,24 +12,24 @@ export class ProductosService {
 
   private url:string = "http://localhost:8080/productos"
 
-  obtenerProductos():Observable<Productos[]>{
-    return this.http.get<Productos[]>(this.url);
+  obtenerProductos():Observable<any[]>{
+    return this.http.get<any[]>(this.url);
   }
 
-  crearProductos(producto:Productos):Observable<Productos>{
-    return this.http.post<Productos>(this.url, producto);
+  crearProductos(producto:any):Observable<any>{
+    return this.http.post<any>(this.url, producto);
   }
 
-  obtenerProducto(id:number):Observable<Productos>{
-    return this.http.get<Productos>(this.url + "/" + id)
+  obtenerProducto(id:number):Observable<any>{
+    return this.http.get<any>(this.url + "/" + id)
   }
 
-  actualizarProducto(producto:Productos):Observable<Productos>{
-    return this.http.put<Productos>(this.url, producto)
+  actualizarProducto(producto:any):Observable<any>{
+    return this.http.put<any>(this.url, producto)
   }
 
-  eliminarProducto(id:number):Observable<Productos>{
-    return this.http.delete<Productos>(this.url + "/" + id)
+  eliminarProducto(id:number):Observable<any>{
+    return this.http.delete<any>(this.url + "/" + id)
   }
 
 }

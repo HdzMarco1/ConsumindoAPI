@@ -4,35 +4,43 @@
     <form>
         <div>
             <label class="form-label">Codigo:</label>
-            <input type="email" class="form-control" [(ngModel)] = "producto.code" [ngModelOptions]="{standalone: true}">
+            <input type="text" class="form-control" [(ngModel)] = "producto.code" [ngModelOptions]="{standalone: true}">
         </div>
         <div>
             <label class="form-label">Nombre:</label>
-            <input type="email" class="form-control" [(ngModel)] = "producto.nombre" [ngModelOptions]="{standalone: true}">
+            <input type="text" class="form-control" [(ngModel)] = "producto.nombre" [ngModelOptions]="{standalone: true}">
         </div>
         <div>
             <label class="form-label">Fecha Embarque:</label>
-            <input type="email" class="form-control" [(ngModel)] = "producto.fechaEmbarque" [ngModelOptions]="{standalone: true}">
+            <input type="date" class="form-control" [(ngModel)] = "producto.fechaEmbarque" [ngModelOptions]="{standalone: true}" max="{{producto.fechaLlegada}}">
         </div>
         <div>
             <label class="form-label">Fecha Llegada:</label>
-            <input type="email" class="form-control" [(ngModel)] = "producto.fechaLlegada" [ngModelOptions]="{standalone: true}">
+            <input type="date" class="form-control" [(ngModel)] = "producto.fechaLlegada" [ngModelOptions]="{standalone: true}" min="{{producto.fechaEmbarque}}">
         </div>
         <div>
             <label class="form-label">cantidad:</label>
-            <input type="email" class="form-control" [(ngModel)] = "producto.cantidad" [ngModelOptions]="{standalone: true}">
+            <input type="number" class="form-control" [(ngModel)] = "producto.cantidad" [ngModelOptions]="{standalone: true}">
         </div>
         <div>
             <label class="form-label">pais origen:</label>
-            <input type="email" class="form-control" [(ngModel)] = "producto.paisOrigenId.nombre" [ngModelOptions]="{standalone: true}">
+            <select class="custom-select" [(ngModel)] = "producto.paisOrigenId.id" [ngModelOptions]="{standalone: true}">
+                <option *ngFor="let item of paises" value="{{ item.id }}">
+                  {{ item.nombre }}
+                </option>
+              </select>
         </div>
         <div>
             <label class="form-label">pais destino:</label>
-            <input type="email" class="form-control" [(ngModel)] = "producto.paisDestinoId.nombre" [ngModelOptions]="{standalone: true}">
+            <select class="custom-select" [(ngModel)] = "producto.paisDestinoId.id" [ngModelOptions]="{standalone: true}">
+                <option *ngFor="let item of paises" value="{{ item.id }}">
+                  {{ item.nombre }}
+                </option>
+              </select>
         </div>
         <br>
-        <button type="submit" class="btn btn-success" (click)="create()">Guardar</button>
-        <button type="submit" class="btn btn-success" style="margin: 10px;" (click)="update()">Editar</button>
+        <button *ngIf="!flagEdit" type="submit" class="btn btn-success" (click)="create()">Guardar</button>
+        <button *ngIf="flagEdit" type="submit" class="btn btn-success" style="margin: 10px;" (click)="update()">Editar</button>
         <button type="submit" class="btn btn-success" style="margin: 5px;" [routerLink]="['/paises']">Regresar</button>
     </form>
 </div>

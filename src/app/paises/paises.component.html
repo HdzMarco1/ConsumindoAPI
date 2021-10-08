@@ -26,10 +26,10 @@
             <th scope="col">Code</th>
             <th scope="col">Nombre</th>
             <th scope="col">Fecha embarque</th>
-            <th scope="col">fecha llegada</th>
-            <th scope="col">cantidad</th>
-            <th scope="col">pais origen</th>
-            <th scope="col">pais destino</th>
+            <th scope="col">Fecha llegada</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Pais origen</th>
+            <th scope="col">Pais destino</th>
         </tr>
         </thead>
         <tbody>
@@ -38,6 +38,7 @@
             <td>{{producto.nombre}}</td>
             <td>{{producto.fechaEmbarque}}</td>
             <td>{{producto.fechaLlegada}}</td>
+            <td>{{producto.cantidad}}</td>
             <td>{{producto.paisOrigenId.nombre}}</td>
             <td>{{producto.paisDestinoId.nombre}}</td>
             <td><button class="btn btn-primary" type="button" [routerLink]="['/productos',producto.id]">Editar</button></td>
